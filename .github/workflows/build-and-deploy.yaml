@@ -1,0 +1,20 @@
+name: Build LaTeX document
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: test.tex
+      - name: Push pdfs to gh-pages branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: new pdfs
+          branch: gh-pages
