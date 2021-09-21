@@ -16,7 +16,7 @@ jobs:
       - name: Push pdfs to gh-pages branch
         uses: EndBug/add-and-commit@v7
         with:
-          add: "test.pdf"
+          add: "test.pdf --force"
           default_author: github_actions
           message: new pdf
           branch: gh-pages
