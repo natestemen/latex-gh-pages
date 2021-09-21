@@ -18,5 +18,4 @@ jobs:
         with:
           commit_message: new pdf
           branch: gh-pages
-          file_pattern: test.pdf
           push_options: "--force"
