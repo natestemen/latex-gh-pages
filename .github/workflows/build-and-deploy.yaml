@@ -14,7 +14,9 @@ jobs:
         with:
           root_file: test.tex
       - name: Push pdfs to gh-pages branch
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: EndBug/add-and-commit@v7
         with:
-          commit_message: new pdfs
+          add: "test.pdf"
+          default_author: github_actions
+          message: new pdf
           branch: gh-pages
