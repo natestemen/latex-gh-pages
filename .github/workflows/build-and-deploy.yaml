@@ -18,8 +18,10 @@ jobs:
         with:
           ref: gh-pages
       - name: Push pdfs to gh-pages branch
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: EndBug/add-and-commit@v7
         with:
-          commit_message: new pdf
           branch: gh-pages
-          push_options: "--force"
+          message: "new pdf"
+          # commit_message: new pdf
+          # branch: gh-pages
+          # push_options: "--force"
