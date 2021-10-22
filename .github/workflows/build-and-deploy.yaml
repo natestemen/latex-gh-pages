@@ -13,10 +13,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: test.tex
-      - name: Switch to gh-pages branch
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
       - name: Push pdfs to gh-pages branch
         uses: EndBug/add-and-commit@v7
         with:
