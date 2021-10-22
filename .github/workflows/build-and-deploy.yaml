@@ -13,10 +13,12 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: test.tex
+      - name: Hide file
+        run: mkdir pdfs; mv *.pdf pdfs/
       - name: Push pdfs to gh-pages branch
         uses: EndBug/add-and-commit@v7
         with:
-          add: ". --force"
+          add: "*.pdf --force"
           branch: gh-pages
           message: "new pdf"
           # commit_message: new pdf
