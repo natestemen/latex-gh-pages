@@ -1,7 +1,8 @@
 # latex-gh-pages
+
+static site deployment with tex files and github pages
 <!-- filetree -->
 
- - **pdfs/**
-   - [test.pdf](./pdfs/test.pdf)
+ - [test.pdf](./test.pdf)
 
 <!-- filetreestop -->
