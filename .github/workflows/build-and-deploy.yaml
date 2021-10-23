@@ -15,7 +15,7 @@ jobs:
           root_file: test.tex
           post_compile: |
             latexmk -c
-            mkdirs pdfs
+            mkdir pdfs
             mv *.pdf pdfs/
       # - name: Hide file
       #   run: mkdir pdfs; mv *.pdf pdfs/
