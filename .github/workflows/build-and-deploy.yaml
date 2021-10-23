@@ -13,8 +13,12 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: test.tex
-      - name: Hide file
-        run: mkdir pdfs; mv *.pdf pdfs/
+          post_compile: |
+            latexmk -c
+            mkdirs pdfs
+            mv *.pdf pdfs/
+      # - name: Hide file
+      #   run: mkdir pdfs; mv *.pdf pdfs/
       - name: Push pdfs to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
