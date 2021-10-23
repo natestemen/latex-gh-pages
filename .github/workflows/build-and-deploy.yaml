@@ -16,10 +16,9 @@ jobs:
           post_compile: |
             latexmk -c
             mkdir pdfs
+            sudo python generate_index.py
             mv *.pdf pdfs/
             cp README.md pdfs/
-      - name: Generate Index
-        run: "sudo python generate_index.py pdfs/README.md"
       - name: Push pdfs to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
