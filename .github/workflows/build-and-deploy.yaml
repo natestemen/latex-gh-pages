@@ -16,11 +16,15 @@ jobs:
       - name: Hide file
         run: mkdir pdfs; mv *.pdf pdfs/
       - name: Push pdfs to gh-pages branch
-        uses: EndBug/add-and-commit@v7
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          add: "*.pdf --force"
           branch: gh-pages
-          message: "new pdf"
-          # commit_message: new pdf
-          # branch: gh-pages
-          # push_options: "--force"
+          folder: pdfs
+        # uses: EndBug/add-and-commit@v7
+        # with:
+        #   add: "*.pdf --force"
+        #   branch: gh-pages
+        #   message: "new pdf"
+        # commit_message: new pdf
+        # branch: gh-pages
+        # push_options: "--force"
