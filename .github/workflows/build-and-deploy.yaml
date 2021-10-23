@@ -12,7 +12,8 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: test.tex
+          root_file: "*.tex"
+          glob_root_file: true
           post_compile: |
             latexmk -c
             mkdir -m 777 pdfs
