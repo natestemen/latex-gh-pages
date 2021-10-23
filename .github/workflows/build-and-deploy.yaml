@@ -17,18 +17,10 @@ jobs:
             latexmk -c
             mkdir pdfs
             mv *.pdf pdfs/
-      # - name: Hide file
-      #   run: mkdir pdfs; mv *.pdf pdfs/
       - name: Push pdfs to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
           folder: pdfs
-        # uses: EndBug/add-and-commit@v7
-        # with:
-        #   add: "*.pdf --force"
-        #   branch: gh-pages
-        #   message: "new pdf"
-        # commit_message: new pdf
-        # branch: gh-pages
-        # push_options: "--force"
+          git-config-name: gh-action
+          git-config-email: 12703123+natestemen@users.noreply.github.com
