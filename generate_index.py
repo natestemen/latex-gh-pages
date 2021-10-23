@@ -95,7 +95,7 @@ def create_index(cwd, headings=False, wikilinks=False):
     base_len = len(cwd)
     base_level = cwd.count(os.sep)
     md_lines = []
-    md_exts = [".markdown", ".mdown", ".mkdn", ".mkd", ".md"]
+    md_exts = [".pdf"]
     md_lines.append("<!-- filetree -->\n\n")
     for root, dirs, files in os.walk(cwd):
         files = sorted(
