@@ -22,5 +22,5 @@ jobs:
         with:
           branch: gh-pages
           folder: pdfs
-          git-config-name: gh-action
-          git-config-email: 12703123+natestemen@users.noreply.github.com
+          git-config-name: github-actions
+          git-config-email: github-actions[bot]@users.noreply.github.com
