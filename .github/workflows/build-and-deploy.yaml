@@ -18,7 +18,7 @@ jobs:
             mkdir -m 777 pdfs
       - name: "Generate index"
         run: |
-          sudo python generate_index.py
+          python generate_index.py
           mv *.pdf pdfs/
           cp README.md pdfs/
       - name: Push pdfs to gh-pages branch
