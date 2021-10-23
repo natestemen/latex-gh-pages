@@ -34,7 +34,7 @@ def create_index(cwd):
         files = sorted(
             [f for f in files if not f[0] == "." and f.lower().endswith(".pdf")]
         )
-        if len(files) > 0:
+        if files:
             level = dirname.count(os.sep) - base_level
             indent = "  " * level
             if dirname != cwd:
@@ -45,11 +45,11 @@ def create_index(cwd):
                     )
                 )
             rel_dir = ".{1}{0}".format(os.sep, dirname[base_len:])
-            for md_filename in files:
+            for pdf in files:
                 indent = "  " * level
                 md_lines.append(
                     "{0} {3} [{1}]({2}{1})\n".format(
-                        indent, md_filename, rel_dir, TOC_LIST_PREFIX
+                        indent, pdf, rel_dir, TOC_LIST_PREFIX
                     )
                 )
 
