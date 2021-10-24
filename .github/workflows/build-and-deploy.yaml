@@ -21,7 +21,6 @@ jobs:
         run: |
           mkdir -m 777 pdfs
           python generate_index.py
-          find . -type f | grep '\.pdf$'
           mv *.pdf pdfs/
           cp README.md pdfs/
       # - name: Push pdfs to gh-pages branch
