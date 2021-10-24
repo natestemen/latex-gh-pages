@@ -22,8 +22,6 @@ modified by: natestemen <github.com/natestemen>
 import os
 import argparse
 
-TOC_LIST_PREFIX = "-"
-
 
 def create_index(cwd):
     """create markdown index of all pdf files in cwd and sub folders"""
@@ -39,19 +37,11 @@ def create_index(cwd):
             indent = "  " * level
             if dirname != cwd:
                 indent = "  " * (level - 1)
-                md_lines.append(
-                    "{0} {2} **{1}/**\n".format(
-                        indent, os.path.basename(dirname), TOC_LIST_PREFIX
-                    )
-                )
+                md_lines.append(f"{indent} - **{os.path.basename(dirname)}/**\n")
             rel_dir = ".{1}{0}".format(os.sep, dirname[base_len:])
             for pdf in files:
                 indent = "  " * level
-                md_lines.append(
-                    "{0} {3} [{1}]({2}{1})\n".format(
-                        indent, pdf, rel_dir, TOC_LIST_PREFIX
-                    )
-                )
+                md_lines.append(f"{indent} - [{pdf}]({rel_dir}{pdf})\n")
 
     md_lines.append("\n<!-- filetreestop -->\n")
     return md_lines
