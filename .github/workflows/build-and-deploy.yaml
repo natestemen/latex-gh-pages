@@ -16,7 +16,8 @@ jobs:
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            latexmk
+            apk add make
+            make build
       - name: "Generate index"
         run: |
           python generate_index.py
