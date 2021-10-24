@@ -22,7 +22,15 @@ jobs:
         run: |
           python generate_index.py
           find . -type f -iname "*.pdf"
-      # - name: Push pdfs to gh-pages branch
+
+      - name: Push pdfs to gh-pages branch
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git checkout gh-pages
+          git add '*.pdf'
+          git commit -m "delivery!"
+          git push origin gh-pages
       #   uses: JamesIves/github-pages-deploy-action@4.1.5
       #   with:
       #     branch: gh-pages
