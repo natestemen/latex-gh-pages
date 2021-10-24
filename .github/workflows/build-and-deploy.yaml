@@ -20,7 +20,7 @@ jobs:
       - name: "Generate index"
         run: |
           python generate_index.py
-          find . -type f
+          find . -type f -iname "*.pdf"
       # - name: Push pdfs to gh-pages branch
       #   uses: JamesIves/github-pages-deploy-action@4.1.5
       #   with:
