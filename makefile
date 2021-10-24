@@ -7,7 +7,7 @@ clean:
 
 build:
 	for dir in $(DIRS); do \
-		pushd $$dir; \
+		cd $$dir; \
 		latexmk -pdf -quiet; \
-		popd; \
+		cd ../; \
 	done
