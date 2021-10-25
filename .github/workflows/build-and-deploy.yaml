@@ -12,16 +12,17 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+
       - name: Compile LaTeX document
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
             apk add make
-            make build
-      - name: "Generate index"
+            make build_new
+
+      - name: Generate index
         run: |
           python generate_index.py index.md
-          find . -type f -iname "*.pdf"
 
       - name: Push pdfs to gh-pages branch
         run: |
@@ -34,9 +35,3 @@ jobs:
           git add '*.pdf' README.md
           git commit -m "delivery!"
           git push origin gh-pages
-      #   uses: JamesIves/github-pages-deploy-action@4.1.5
-      #   with:
-      #     branch: gh-pages
-      #     folder: pdfs
-      #     git-config-name: github-actions
-      #     git-config-email: github-actions[bot]@users.noreply.github.com

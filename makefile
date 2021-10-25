@@ -1,4 +1,4 @@
-DIRS = test
+DIRS = test .
 
 .PHONY: clean
 
@@ -11,3 +11,6 @@ build:
 		latexmk -pdf -quiet; \
 		cd ../; \
 	done
+
+build_new:
+	git diff HEAD~1 --name-only | grep '\.tex' | xargs latexmk -pdf -quiet
