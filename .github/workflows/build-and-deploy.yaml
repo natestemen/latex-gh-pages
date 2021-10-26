@@ -47,6 +47,7 @@ jobs:
           git config user.name github-actions
           git config user.email actions@github.com
           git fetch origin gh-pages:gh-pages
+          find . -type f -name '*.pdf'
           mv generate_index.py index.py
           git stash
           git checkout gh-pages
