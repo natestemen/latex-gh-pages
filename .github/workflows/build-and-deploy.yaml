@@ -48,7 +48,9 @@ jobs:
           git config user.email actions@github.com
           git fetch origin gh-pages:gh-pages
           mv generate_index.py index.py
-          git checkout --detach gh-pages
+          git stash
+          git checkout gh-pages
+          git stash apply
           python index.py
           git add '*.pdf' README.md
           git commit -m "delivery! initiated from (${{ steps.vars.outputs.sha_short }})"
