@@ -32,10 +32,9 @@ jobs:
               latexmk -pdf $file
             done
 
-      - name: Generate index
-        run: |
-          python generate_index.py index.md
-          cp README.md tmp.md
+      # - name: Generate index
+      #   run: |
+      #     cp README.md tmp.md
 
       - name: Push pdfs to gh-pages branch
         run: |
@@ -43,7 +42,7 @@ jobs:
           git config user.email actions@github.com
           git fetch origin gh-pages:gh-pages
           git checkout gh-pages
-          cat tmp.md index.md > README.md
+          python generate_index.py
           git add '*.pdf' README.md
           git commit -m "delivery!"
           git push origin gh-pages
