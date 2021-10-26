@@ -45,5 +45,5 @@ jobs:
           git checkout gh-pages
           python index.py
           git add '*.pdf' README.md
-          git commit -m "delivery! initiated from (${{ github.sha }})"
+          git commit -m "delivery! initiated from (${{ git rev-parse --short github.sha }})"
           git push origin gh-pages
