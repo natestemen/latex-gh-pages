@@ -26,7 +26,6 @@ jobs:
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            apk add make
             for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
               echo "$file"
               latexmk -pdf $file
@@ -51,6 +50,9 @@ jobs:
           mv generate_index.py index.py
           git stash --all
           git checkout gh-pages
+          for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
+            rm "${file%.*}.pdf"
+          done
           git stash pop
           find . -type f -name '*.pdf'
           python index.py
