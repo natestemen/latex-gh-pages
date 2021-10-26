@@ -51,8 +51,9 @@ jobs:
           mv generate_index.py index.py
           git stash
           git checkout gh-pages
-          git stash apply
+          git stash pop
+          find . -type f -name '*.pdf'
           python index.py
           git add '*.pdf' README.md
-          git commit -m "delivery! initiated from (${{ steps.vars.outputs.sha_short }})"
+          git commit -m "delivery! initiated from (${GITHUB_SHA::6})"
           git push origin gh-pages
