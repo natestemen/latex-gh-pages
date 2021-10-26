@@ -57,5 +57,5 @@ jobs:
           find . -type f -name '*.pdf'
           python index.py
           git add '*.pdf' README.md
-          git commit -m "delivery! initiated from (${GITHUB_SHA::6})"
+          git commit -m "delivery! initiated from ($GITHUB_SHA)"
           git push origin gh-pages
