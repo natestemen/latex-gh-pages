@@ -49,7 +49,7 @@ jobs:
           git fetch origin gh-pages:gh-pages
           find . -type f -name '*.pdf'
           mv generate_index.py index.py
-          git stash
+          git stash --all
           git checkout gh-pages
           git stash pop
           find . -type f -name '*.pdf'
