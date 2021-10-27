@@ -8,5 +8,7 @@ static site deployment with tex files and github pages
  - **test/**
    - [indir.pdf](./test/indir.pdf)
    - [testnew.pdf](./test/testnew.pdf)
+ - **dir/**
+   - [main.pdf](./dir/main.pdf)
 
 <!-- filetreestop -->
