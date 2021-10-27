@@ -26,7 +26,7 @@ jobs:
         uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            for file in ${{ steps.changed-tex-files.outputs.modified_files }}; do
+            for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
               latexmk -pdf $file
             done
             find . -type f \( -name "*.log" -o -name "*.out" -o -name "*.fls" -o -name "*.aux" -o -name "*.fdb_latexmk" -o -name "*.synctex.gz" -o -name "*.bbl" -o -name "*.bcf" -o -name "*.blg" -o -name "*.toc" -o -name "*.run.xml" \) -delete
@@ -43,6 +43,7 @@ jobs:
           git config user.name github-actions
           git config user.email actions@github.com
           git fetch origin gh-pages:gh-pages
+
           mv generate_index.py index.py
           git stash --all
           git checkout gh-pages
