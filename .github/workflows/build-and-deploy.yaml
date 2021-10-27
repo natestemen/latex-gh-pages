@@ -29,6 +29,7 @@ jobs:
             for file in ${{ steps.changed-tex-files.outputs.modified_files }}; do
               latexmk -pdf $file
             done
+            find . -type f \( -name "*.log" -o -name "*.out" -o -name "*.fls" -o -name "*.aux" -o -name "*.fdb_latexmk" -o -name "*.synctex.gz" -o -name "*.bbl" -o -name "*.bcf" -o -name "*.blg" -o -name "*.toc" -o -name "*.run.xml" \) -delete
 
       # - name: delete
       #   if: ${{ steps.changed-files.outputs.any_deleted == 'true' }}
@@ -53,6 +54,7 @@ jobs:
           done
           git stash pop
           python index.py
-          git add '*.pdf' README.md
+          rm index.py
+          git add .
           git commit -m "delivery! initiated from ($GITHUB_SHA)"
           git push origin gh-pages
