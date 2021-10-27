@@ -46,15 +46,14 @@ jobs:
           mv generate_index.py index.py
           git stash --all
           git checkout gh-pages
+          git stash pop
           for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
             rm "${file%.*}.pdf"
           done
           for file in ${{ steps.changed-tex-files.outputs.deleted_files }}; do
             rm "${file%.*}.pdf"
           done
-          git stash pop
           python index.py
-          rm index.py
-          git add .
+          git add '*.pdf' README.md
           git commit -m "delivery! initiated from ($GITHUB_SHA)"
           git push origin gh-pages
