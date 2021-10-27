@@ -5,7 +5,6 @@ static site deployment with tex files and github pages
 
  - [new.pdf](./new.pdf)
  - [test.pdf](./test.pdf)
- - [testnew.pdf](./testnew.pdf)
  - **test/**
    - [indir.pdf](./test/indir.pdf)
    - [testnew.pdf](./test/testnew.pdf)
