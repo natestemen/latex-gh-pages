@@ -48,11 +48,11 @@ jobs:
           git stash --all
           git checkout gh-pages
           for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
-            rm "${file%.*}.pdf"
+            rm -f "${file%.*}.pdf"
           done
           git stash pop
           for file in ${{ steps.changed-tex-files.outputs.deleted_files }}; do
-            rm "${file%.*}.pdf"
+            rm -f "${file%.*}.pdf"
           done
           python index.py
           git add '*.pdf' README.md
