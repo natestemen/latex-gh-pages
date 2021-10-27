@@ -30,12 +30,12 @@ jobs:
               latexmk -pdf $file
             done
 
-      - name: Run step if any of the listed files above is deleted
-        if: ${{ steps.changed-files.outputs.any_deleted == 'true' }}
-        run: |
-          for file in ${{ steps.changed-files.outputs.deleted_files }}; do
-            rm $file
-          done
+      # - name: delete
+      #   if: ${{ steps.changed-files.outputs.any_deleted == 'true' }}
+      #   run: |
+      #     for file in ${{ steps.changed-files.outputs.deleted_files }}; do
+      #       rm $file
+      #     done
 
       - name: Push pdfs to gh-pages branch
         run: |
@@ -46,6 +46,9 @@ jobs:
           git stash --all
           git checkout gh-pages
           for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
+            rm "${file%.*}.pdf"
+          done
+          for file in ${{ steps.changed-tex-files.outputs.deleted_files }}; do
             rm "${file%.*}.pdf"
           done
           git stash pop
