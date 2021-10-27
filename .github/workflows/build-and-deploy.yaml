@@ -27,16 +27,9 @@ jobs:
         with:
           run: |
             for file in ${{ steps.changed-tex-files.outputs.all_modified_files }}; do
-              latexmk -pdf $file
+              latexmk -pdf -cd $file
             done
             find . -type f \( -name "*.log" -o -name "*.out" -o -name "*.fls" -o -name "*.aux" -o -name "*.fdb_latexmk" -o -name "*.synctex.gz" -o -name "*.bbl" -o -name "*.bcf" -o -name "*.blg" -o -name "*.toc" -o -name "*.run.xml" \) -delete
-
-      # - name: delete
-      #   if: ${{ steps.changed-files.outputs.any_deleted == 'true' }}
-      #   run: |
-      #     for file in ${{ steps.changed-files.outputs.deleted_files }}; do
-      #       rm $file
-      #     done
 
       - name: Push pdfs to gh-pages branch
         run: |
